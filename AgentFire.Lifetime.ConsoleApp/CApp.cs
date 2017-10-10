@@ -23,7 +23,7 @@ namespace AgentFire.Lifetime.ConsoleApp
             {
                 start();
             }
-            catch
+            catch(Exception ex)
             {
                 bool failedToStopToo = false;
 
@@ -47,7 +47,7 @@ namespace AgentFire.Lifetime.ConsoleApp
                     Console.Write($" and to stop after that");
                 }
 
-                Console.WriteLine(".");
+                Console.WriteLine($". Message: {ex.Message}.");
                 Console.ForegroundColor = ConsoleColor.Gray;
 
                 return;
@@ -65,14 +65,15 @@ namespace AgentFire.Lifetime.ConsoleApp
 
             Console.WriteLine("--");
             Console.WriteLine($"Stopping {name}...");
+            Console.WriteLine("--");
 
             try
             {
                 stop();
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine($"{name} has failed to stop.");
+                Console.WriteLine($"{name} has failed to stop. Message: {ex.Message}.");
             }
 
             Console.WriteLine("--");
