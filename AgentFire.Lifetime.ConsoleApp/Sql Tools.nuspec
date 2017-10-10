@@ -2,14 +2,14 @@
 <package>
   <metadata>
     <id>AgentFire.Lifetime.ConsoleApp</id>
-    <version>1.0.0</version>
+    <version>1.0.0.1</version>
     <title>Lifetime ConsoleApp</title>
     <authors>AgentFire</authors>
     <owners>AgentFire</owners>
     <projectUrl>https://github.com/AgentFire/AgentFire.Lifetime.ConsoleApp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides a way to start a console app, then to stop it via Ctrl-C command.</description>
-    <releaseNotes>First release.</releaseNotes>
+    <releaseNotes>Minor Console write.</releaseNotes>
     <copyright>Copyright (c) AgentFire</copyright>
     <tags>start stop lifetime console application</tags>
   </metadata>

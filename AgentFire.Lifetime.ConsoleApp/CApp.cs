@@ -64,6 +64,7 @@ namespace AgentFire.Lifetime.ConsoleApp
             } while (info.Key != ConsoleKey.C || info.Modifiers != ConsoleModifiers.Control);
 
             Console.WriteLine("--");
+            Console.WriteLine($"Stopping {name}...");
 
             try
             {
