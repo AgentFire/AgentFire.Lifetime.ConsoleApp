@@ -19,39 +19,7 @@ namespace AgentFire.Lifetime.ConsoleApp
 
         private static void GoInternal(string name, Action start, Action stop, bool stopOnFailedStart)
         {
-            try
-            {
-                start();
-            }
-            catch(Exception ex)
-            {
-                bool failedToStopToo = false;
-
-                if (stopOnFailedStart)
-                {
-                    try
-                    {
-                        stop();
-                    }
-                    catch
-                    {
-                        failedToStopToo = true;
-                    }
-                }
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write($"{name} has failed to start");
-
-                if (failedToStopToo)
-                {
-                    Console.Write($" and to stop after that");
-                }
-
-                Console.WriteLine($". Message: {ex.Message}.");
-                Console.ForegroundColor = ConsoleColor.Gray;
-
-                return;
-            }
+            start();
 
             Console.WriteLine("--");
             Console.WriteLine("Startup is successful. Press Ctrl-C to shutdown.");
@@ -67,14 +35,7 @@ namespace AgentFire.Lifetime.ConsoleApp
             Console.WriteLine($"Stopping {name}...");
             Console.WriteLine("--");
 
-            try
-            {
-                stop();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{name} has failed to stop. Message: {ex.Message}.");
-            }
+            stop();
 
             Console.WriteLine("--");
             Console.WriteLine($"{name} is no more.");
