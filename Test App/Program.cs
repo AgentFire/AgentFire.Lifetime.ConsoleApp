@@ -10,10 +10,11 @@ namespace Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        async static Task Main(string[] args)
         {
             //CApp.Lifetime("My app 1", A1, Z1);
-            CApp.Lifetime("My app 2", A2, Z2, false);
+
+            await CApp.LifetimeAsync("My app 2", A2, Z2);
         }
 
         private static void A1()
@@ -29,17 +30,17 @@ namespace Test_App
             Console.WriteLine("Done.");
         }
 
-        private static void A2()
+        private static async Task A2()
         {
             Console.WriteLine("Starting...");
-            Thread.Sleep(1000);
-            throw new Exception();
+            await Task.Delay(1000);
+            Console.WriteLine("Done.");
         }
-        private static void Z2()
+        private static async Task Z2()
         {
             Console.WriteLine("Stopping...");
-            Thread.Sleep(1500);
-            throw new Exception();
+            await Task.Delay(1500);
+            throw new Exception("This is expected, isn't it.");
         }
     }
 }
