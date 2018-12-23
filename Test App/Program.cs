@@ -8,35 +8,19 @@ using System.Threading.Tasks;
 
 namespace Test_App
 {
-    class Program
+    internal class Program
     {
-        async static Task Main(string[] args)
+        private static async Task Main()
         {
-            //CApp.Lifetime("My app 1", A1, Z1);
-
-            await CApp.LifetimeAsync("My app 2", A2, Z2);
+            await CApp.LifetimeAsync("My app", MyAsyncStartMethod, MyAsyncStopMethod);
         }
-
-        private static void A1()
-        {
-            Console.WriteLine("Starting...");
-            Thread.Sleep(1000);
-            Console.WriteLine("Done.");
-        }
-        private static void Z1()
-        {
-            Console.WriteLine("Stopping...");
-            Thread.Sleep(300);
-            Console.WriteLine("Done.");
-        }
-
-        private static async Task A2()
+        private static async Task MyAsyncStartMethod()
         {
             Console.WriteLine("Starting...");
             await Task.Delay(1000);
             Console.WriteLine("Done.");
         }
-        private static async Task Z2()
+        private static async Task MyAsyncStopMethod()
         {
             Console.WriteLine("Stopping...");
             await Task.Delay(1500);
